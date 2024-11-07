@@ -18,7 +18,7 @@ class ChatbotGraphInterface(Protocol):
         pass
 
 
-class SimpleChatbotGraph:
+class SimpleChatbotGraph(ChatbotGraphInterface):
     def __init__(self, llm: ChatOpenAI):
         self.graph = SimpleChatbotGraph._build_graph(llm)
 
@@ -33,7 +33,7 @@ class SimpleChatbotGraph:
         graph_builder.add_edge("chatbot", END)
         return graph_builder.compile()
 
-    def stream_graph_updates(self, user_input: str):
+    def stream_graph_updates(self, user_input: str) -> None:
         for event in self.graph.stream({"messages": [("user", user_input)]}):
             for value in event.values():
                 print("Assistant:", value["messages"][-1].content)

@@ -1,15 +1,10 @@
-from typing import Annotated, Protocol, TypedDict
+from typing import Protocol
 
 from langchain_openai.chat_models import ChatOpenAI
-from langgraph.graph import StateGraph, START, END, add_messages
+from langgraph.graph import StateGraph, START, END
 from langgraph.graph.state import CompiledStateGraph
 
-
-class State(TypedDict):
-    # Messages have the type "list". The `add_messages` function
-    # in the annotation defines how this state key should be updated
-    # (in this case, it appends messages to the list, rather than overwriting them)
-    messages: Annotated[list, add_messages]
+from tutorial.utils import State
 
 
 class ChatbotGraphInterface(Protocol):

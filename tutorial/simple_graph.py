@@ -1,16 +1,8 @@
-from typing import Protocol
-
 from langchain_openai.chat_models import ChatOpenAI
 from langgraph.graph import StateGraph, START, END
 from langgraph.graph.state import CompiledStateGraph
 
-from tutorial.utils import State
-
-
-class ChatbotGraphInterface(Protocol):
-    def stream_graph_updates(self, user_input: str) -> None:
-        """Graph 업데이트 스트리밍 메서드를 정의합니다."""
-        pass
+from tutorial.utils import State, ChatbotGraphInterface
 
 
 class SimpleChatbotGraph(ChatbotGraphInterface):

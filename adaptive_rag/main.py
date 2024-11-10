@@ -17,7 +17,21 @@ if __name__ == "__main__":
 
     print(
         get_answer_for(
+            "비트 코인에 대해서 알려줘.",
+            get_adaptive_rag_graph(),
+        )
+    )
+
+    print(
+        get_answer_for(
             "AI Agent에서 메모리 타입을 모두 알려줘.",
+            get_adaptive_rag_graph(),
+        )
+    )
+
+    print(
+        get_answer_for(
+            "Self-reflection의 저자가 누구인지 알려줘",
             get_adaptive_rag_graph(),
         )
     )

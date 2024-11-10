@@ -164,4 +164,4 @@ def get_question_rewriter():
         ]
     )
 
-    return re_write_prompt | get_model()
+    return re_write_prompt | get_model() | StrOutputParser()
